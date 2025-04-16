@@ -1,21 +1,23 @@
-document.getElementById('formOrdemServico').addEventListener('submit', function (e) {
+document.getElementById('formCadastro').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const nomeCliente = document.getElementById('nomeCliente');
-    const telefone = document.getElementById('telefone');
+    const nomeAluno = document.getElementById('nomeAluno');
+    const Contato = document.getElementById('Contato');
     const email = document.getElementById('email');
     const cpf = document.getElementById('cpf');
-    const veiculoAno = document.getElementById('veiculoAno');
+    const dataNascimento = document.getElementById('dataNascimento');
+    const endereco = document.getElementById('endereco');
+    const Contatos = document.getElementById('Contatos');
 
     let valid = true;
 
-    if (nomeCliente.value.trim() === '') {
-        alert('Por favor, preencha o nome do cliente');
+    if (nomeAluno.value.trim() === '') {
+        alert('Por favor, preencha o nome do aluno');
         valid = false;
     }
 
     const telefoneRegex = /^\d{11}$/;
-    if (!telefoneRegex.test(telefone.value)) {
+    if (!telefoneRegex.test(Contato.value)) {
         alert('Telefone deve conter 11 dígitos (DDD + número)');
         valid = false;
     }
@@ -48,13 +50,13 @@ document.getElementById('formOrdemServico').addEventListener('submit', function 
         valid = false;
     } */
 
-    if (veiculoAno.value < 1900 || veiculoAno.value > new Date().getFullYear()) {
-        alert('Ano do veículo deve ser entre 1900 e o ano atual');
+    if (dataNascimento.value < 1905 || dataNascimento.value > new Date().getFullYear()) {
+        alert('Ano do nascimento tem que ser a partir de 1905 para acima');
         valid = false;
     }
 
     if (valid) {
-        alert('Ordem de serviço enviada com sucesso!');
+        alert('O cadastro foi um sucesso!');
         this.reset();
     }
 });
